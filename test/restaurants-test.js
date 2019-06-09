@@ -39,7 +39,7 @@ describe('RestaurantInput', () => {
     let form = wrapper.find('form');
     let input = wrapper.find('input').first();
 
-    // console.log(store.getState());
+    console.log(store.getState());
     input.simulate('change', { target: { value: 'Hello' } })
     form.simulate('submit',  { preventDefault() {} })
     // console.log(store.getState());
@@ -118,14 +118,16 @@ describe('Restaurant Component with Redux', () => {
 
   it('has a button that dispatches a DELETE_RESTAURANT action with the proper id when clicked', ()=> {
     const store = createStore(manageRestaurant);
+    console.log(store.getState().restaurants.length)
     store.dispatch({type: 'ADD_RESTAURANT', text: 'Bagel World'})
 
     const wrapper = mount(<Provider store={store}><App /></Provider>)
 
     let deleteButton = wrapper.find('button').first();
-
+    
     deleteButton.simulate('click',  { preventDefault() {} });
-
+    debugger
+    console.log(store.getState().restaurants.length)
     expect(store.getState().restaurants.length).to.equal(0);
 
 
@@ -149,6 +151,7 @@ describe('Restaurant Component with Redux', () => {
     wrapper.update()
 
     let deleteButton = wrapper.find('button').first();
+    
 
     deleteButton.simulate('click');
 
