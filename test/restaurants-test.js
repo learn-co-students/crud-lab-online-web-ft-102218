@@ -126,7 +126,7 @@ describe('Restaurant Component with Redux', () => {
     let deleteButton = wrapper.find('button').first();
     
     deleteButton.simulate('click',  { preventDefault() {} });
-    debugger
+
     console.log(store.getState().restaurants.length)
     expect(store.getState().restaurants.length).to.equal(0);
 
