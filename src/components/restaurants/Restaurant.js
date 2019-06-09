@@ -6,7 +6,7 @@ class Restaurant extends Component {
     super(props)
   }
 
-  handleDelete = (event, id) => {
+  handleDelete = (event) => {
     event.preventDefault()
     this.props.delete(this.props.restaurant.id)
   }
@@ -17,7 +17,7 @@ class Restaurant extends Component {
       <div>
         <li>
           {restaurant.text}
-          <button id={restaurant.id} onClick={(event) => this.handleDelete(event, restaurant.id)}> X </button>
+          <button id={restaurant.id} onClick={this.handleDelete}> X </button>
           <ReviewsContainer restaurant={restaurant}/>
         </li>
       </div>
