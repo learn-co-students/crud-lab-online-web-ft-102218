@@ -11,7 +11,7 @@ const store = createStore(manageRestaurant, window.__REDUX_DEVTOOLS_EXTENSION__ 
 
 ReactDOM.render(
   <Provider store={store}>
-    <App store={store} number={store.getState().restaurants.length}/>
+    <App store={store} />
   </Provider>,
 document.getElementById('root')
 )
